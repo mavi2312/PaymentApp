@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ek-zk-JIW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base View Controller-->
+        <scene sceneID="LNB-HG-wa9">
+            <objects>
+                <viewController id="0Ek-zk-JIW" customClass="BaseViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UaJ-8b-Ixj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-rS-T66">
+                                <rect key="frame" x="0.0" y="139" width="375" height="450"/>
+                                <connections>
+                                    <segue destination="v56-oY-08T" kind="embed" id="rt8-5y-Lvy"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-6C-NPc">
+                                <rect key="frame" x="0.0" y="29" width="375" height="102"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="sRa-Nn-szz"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercadoPagoImage" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-1A-gxT">
+                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UUQ-ln-Vez"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jad-LE-KHE" firstAttribute="bottom" secondItem="ViK-1A-gxT" secondAttribute="bottom" constant="20" id="0VB-4K-rTR"/>
+                            <constraint firstItem="MJG-rS-T66" firstAttribute="top" secondItem="6xc-6C-NPc" secondAttribute="bottom" constant="8" id="3I1-YX-rKh"/>
+                            <constraint firstItem="6xc-6C-NPc" firstAttribute="top" secondItem="Jad-LE-KHE" secondAttribute="top" constant="9" id="3ah-K3-WZO"/>
+                            <constraint firstItem="MJG-rS-T66" firstAttribute="centerX" secondItem="Jad-LE-KHE" secondAttribute="centerX" id="59D-2y-mzP"/>
+                            <constraint firstItem="MJG-rS-T66" firstAttribute="width" secondItem="UaJ-8b-Ixj" secondAttribute="width" id="V6O-7k-OHk"/>
+                            <constraint firstItem="ViK-1A-gxT" firstAttribute="width" secondItem="UaJ-8b-Ixj" secondAttribute="width" id="XBL-yB-MCg"/>
+                            <constraint firstItem="6xc-6C-NPc" firstAttribute="centerX" secondItem="Jad-LE-KHE" secondAttribute="centerX" id="ege-Bw-Lcf"/>
+                            <constraint firstItem="ViK-1A-gxT" firstAttribute="centerX" secondItem="Jad-LE-KHE" secondAttribute="centerX" id="evO-L3-FoA"/>
+                            <constraint firstItem="6xc-6C-NPc" firstAttribute="width" secondItem="UaJ-8b-Ixj" secondAttribute="width" id="iza-YJ-ALU"/>
+                            <constraint firstItem="ViK-1A-gxT" firstAttribute="top" secondItem="MJG-rS-T66" secondAttribute="bottom" constant="8" id="laT-3W-E6I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jad-LE-KHE"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="6xc-6C-NPc" id="ArD-La-6bU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVM-JZ-7yx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671.20000000000005" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WAH-Eu-BpS">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="v56-oY-08T" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cgt-nM-Pm3">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nsN-Ag-GHF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZP-Qp-994" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="134"/>
+        </scene>
+        <!--Amount View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AmountViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-iB-dSh">
+                                <rect key="frame" x="47" y="210" width="281" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7T-8P-SrI">
+                                <rect key="frame" x="154" y="351" width="67" height="30"/>
+                                <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <segue destination="9gf-Fw-xEf" kind="show" id="acc-Uu-8Xu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el monto a pagar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT3-mf-l8N">
+                                <rect key="frame" x="92.5" y="55" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G7T-8P-SrI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Md-Ld-VAZ"/>
+                            <constraint firstItem="nT3-mf-l8N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nbx-1N-jVr"/>
+                            <constraint firstItem="nT3-mf-l8N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="SoT-re-T6b"/>
+                            <constraint firstItem="G7T-8P-SrI" firstAttribute="top" secondItem="5ef-iB-dSh" secondAttribute="bottom" constant="111" id="UEa-rr-wu9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G7T-8P-SrI" secondAttribute="bottom" constant="69" id="WCl-Hj-fx2"/>
+                            <constraint firstItem="5ef-iB-dSh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="iQx-q2-0rU"/>
+                            <constraint firstItem="5ef-iB-dSh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oHE-yE-c9Q"/>
+                            <constraint firstItem="5ef-iB-dSh" firstAttribute="top" secondItem="nT3-mf-l8N" secondAttribute="bottom" constant="134" id="pcj-KD-99d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sWl-zu-2Y7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="135"/>
+        </scene>
+        <!--Payment Method View Controller-->
+        <scene sceneID="dYS-k0-vq5">
+            <objects>
+                <viewController id="9gf-Fw-xEf" customClass="PaymentMethodViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cbZ-hH-yqP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ra9-6V-iuC">
+                                <rect key="frame" x="47" y="100" width="281" height="227"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UcJ-Ku-N2h">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="19e-3v-mtY">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgF-hH-WIa">
+                                <rect key="frame" x="154" y="351" width="67" height="30"/>
+                                <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <segue destination="qt0-n6-bak" kind="show" id="L1c-3A-Mf8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione un método de pago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tob-Kk-M0k">
+                                <rect key="frame" x="69" y="55" width="237" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="SgF-hH-WIa" secondAttribute="bottom" constant="69" id="Duh-dd-wNv"/>
+                            <constraint firstItem="SgF-hH-WIa" firstAttribute="top" secondItem="ra9-6V-iuC" secondAttribute="bottom" constant="24" id="GYw-h4-rCx"/>
+                            <constraint firstItem="ra9-6V-iuC" firstAttribute="width" secondItem="cbZ-hH-yqP" secondAttribute="width" multiplier="0.75" id="SDA-4T-edx"/>
+                            <constraint firstItem="Tob-Kk-M0k" firstAttribute="top" secondItem="cbZ-hH-yqP" secondAttribute="top" constant="55" id="e1i-QC-Nji"/>
+                            <constraint firstItem="SgF-hH-WIa" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="fQu-8S-XGV"/>
+                            <constraint firstItem="ra9-6V-iuC" firstAttribute="top" secondItem="Tob-Kk-M0k" secondAttribute="bottom" constant="24" id="hhM-OJ-hgN"/>
+                            <constraint firstItem="ra9-6V-iuC" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xQd-Wj-G9L"/>
+                            <constraint firstItem="Tob-Kk-M0k" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xhk-Ir-M5r"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0JG-4j-U7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429.5999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--Card Issuers View Controller-->
+        <scene sceneID="9Ga-Mo-7yc">
+            <objects>
+                <viewController id="qt0-n6-bak" customClass="CardIssuersViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e3k-Ip-Vyp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cRz-ca-OIN">
+                                <rect key="frame" x="47" y="100" width="281" height="227"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z9T-dY-BJY">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="W9L-KY-PzN">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-pl-RVn">
+                                <rect key="frame" x="154" y="351" width="67" height="30"/>
+                                <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <segue destination="D6Q-bv-hwx" kind="show" id="DgW-Oq-yaX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione su banco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-WT-IFO">
+                                <rect key="frame" x="108.5" y="55" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Gb-pl-RVn" firstAttribute="centerX" secondItem="ZEa-KI-5v2" secondAttribute="centerX" id="4l8-6H-qMV"/>
+                            <constraint firstItem="uHK-WT-IFO" firstAttribute="centerX" secondItem="ZEa-KI-5v2" secondAttribute="centerX" id="78w-yN-LAp"/>
+                            <constraint firstItem="cRz-ca-OIN" firstAttribute="width" secondItem="e3k-Ip-Vyp" secondAttribute="width" multiplier="0.75" id="9lH-LB-jQW"/>
+                            <constraint firstItem="ZEa-KI-5v2" firstAttribute="bottom" secondItem="8Gb-pl-RVn" secondAttribute="bottom" constant="69" id="HG5-Db-UHT"/>
+                            <constraint firstItem="8Gb-pl-RVn" firstAttribute="top" secondItem="cRz-ca-OIN" secondAttribute="bottom" constant="24" id="VGM-n3-8KI"/>
+                            <constraint firstItem="cRz-ca-OIN" firstAttribute="centerX" secondItem="ZEa-KI-5v2" secondAttribute="centerX" id="VxB-bz-xFq"/>
+                            <constraint firstItem="cRz-ca-OIN" firstAttribute="top" secondItem="uHK-WT-IFO" secondAttribute="bottom" constant="24" id="anD-fM-3hU"/>
+                            <constraint firstItem="uHK-WT-IFO" firstAttribute="top" secondItem="ZEa-KI-5v2" secondAttribute="top" constant="55" id="zaK-Ju-7Rg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZEa-KI-5v2"/>
+                    </view>
+                    <connections>
+                        <segue destination="pwp-cy-9gz" kind="unwind" unwindAction="finishPaymentWithSegue:" id="H1I-SI-bYJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isU-QA-UaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pwp-cy-9gz" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2161" y="134"/>
+        </scene>
+        <!--Installments View Controller-->
+        <scene sceneID="BHa-II-jjr">
+            <objects>
+                <viewController id="D6Q-bv-hwx" customClass="InstallmentsViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hyc-Kx-LqY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione  las cuotas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-v7-SjD">
+                                <rect key="frame" x="102.5" y="55" width="170" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-Wi-JdG">
+                                <rect key="frame" x="47" y="100" width="281" height="227"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q4-o0-szO">
+                                <rect key="frame" x="159" y="351" width="57" height="30"/>
+                                <state key="normal" title="Finalizar"/>
+                                <connections>
+                                    <segue destination="1r3-Qq-axg" kind="unwind" unwindAction="finishPaymentWithSegue:" id="Oce-1t-tZe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pzz-v7-SjD" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="38h-DF-Elh"/>
+                            <constraint firstItem="4q4-o0-szO" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="GxI-IP-h2d"/>
+                            <constraint firstItem="pzz-v7-SjD" firstAttribute="top" secondItem="St5-0h-hZk" secondAttribute="top" constant="55" id="Poh-dK-DQk"/>
+                            <constraint firstItem="NHV-Wi-JdG" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="VTf-dB-6uu"/>
+                            <constraint firstItem="4q4-o0-szO" firstAttribute="top" secondItem="NHV-Wi-JdG" secondAttribute="bottom" constant="24" id="b0n-UO-63A"/>
+                            <constraint firstItem="NHV-Wi-JdG" firstAttribute="width" secondItem="Hyc-Kx-LqY" secondAttribute="width" multiplier="0.75" id="lW3-a4-xkH"/>
+                            <constraint firstItem="NHV-Wi-JdG" firstAttribute="top" secondItem="pzz-v7-SjD" secondAttribute="bottom" constant="24" id="xZ3-bO-zaA"/>
+                            <constraint firstItem="St5-0h-hZk" firstAttribute="bottom" secondItem="4q4-o0-szO" secondAttribute="bottom" constant="69" id="xit-w8-Kcu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="St5-0h-hZk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T5d-9s-ngG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1r3-Qq-axg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2965.5999999999999" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mercadoPagoImage" width="735" height="219"/>
+    </resources>
+</document>
