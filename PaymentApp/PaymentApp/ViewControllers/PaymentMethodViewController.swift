@@ -12,7 +12,14 @@ class PaymentMethodViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let networkManager = NetworkAPIManager()
+        let paymentMethodRequestModel = PaymentMethodRequestModel(public_key: networkManager.publicKey)
+        if let params = try? paymentMethodRequestModel.asDictionary(){
+            networkManager.request(urlString: .paymentMethods, params: params){
+                (response: [PaymentMethod]?, error: ErrorTypes?) in
+                print("response?[0].name: \(response?[0].name ?? "")")
+            }
+        }
         // Do any additional setup after loading the view.
     }
     

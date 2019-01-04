@@ -176,6 +176,7 @@
                             <constraint firstItem="ra9-6V-iuC" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xQd-Wj-G9L"/>
                             <constraint firstItem="Tob-Kk-M0k" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xhk-Ir-M5r"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="LQR-7I-qjX"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JG-4j-U7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-Wi-JdG">
-                                <rect key="frame" x="47" y="100" width="281" height="227"/>
+                                <rect key="frame" x="-1640.5" y="100" width="3656" height="227"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q4-o0-szO">
@@ -279,7 +280,7 @@
                             <constraint firstItem="pzz-v7-SjD" firstAttribute="top" secondItem="St5-0h-hZk" secondAttribute="top" constant="55" id="Poh-dK-DQk"/>
                             <constraint firstItem="NHV-Wi-JdG" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="VTf-dB-6uu"/>
                             <constraint firstItem="4q4-o0-szO" firstAttribute="top" secondItem="NHV-Wi-JdG" secondAttribute="bottom" constant="24" id="b0n-UO-63A"/>
-                            <constraint firstItem="NHV-Wi-JdG" firstAttribute="width" secondItem="Hyc-Kx-LqY" secondAttribute="width" multiplier="0.75" id="lW3-a4-xkH"/>
+                            <constraint firstItem="NHV-Wi-JdG" firstAttribute="width" secondItem="Hyc-Kx-LqY" secondAttribute="width" multiplier="9.75" id="lW3-a4-xkH"/>
                             <constraint firstItem="NHV-Wi-JdG" firstAttribute="top" secondItem="pzz-v7-SjD" secondAttribute="bottom" constant="24" id="xZ3-bO-zaA"/>
                             <constraint firstItem="St5-0h-hZk" firstAttribute="bottom" secondItem="4q4-o0-szO" secondAttribute="bottom" constant="69" id="xit-w8-Kcu"/>
                         </constraints>

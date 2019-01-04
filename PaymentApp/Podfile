@@ -8,7 +8,7 @@ target 'PaymentApp' do
   # Pods for PaymentApp
 
   pod 'lottie-ios'
-
+  pod 'Alamofire'
   target 'PaymentAppTests' do
     inherit! :search_paths
     # Pods for testing
