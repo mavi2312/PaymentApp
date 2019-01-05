@@ -21,7 +21,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-rS-T66">
                                 <rect key="frame" x="0.0" y="139" width="375" height="450"/>
                                 <connections>
-                                    <segue destination="v56-oY-08T" kind="embed" id="rt8-5y-Lvy"/>
+                                    <segue destination="v56-oY-08T" kind="embed" identifier="baseSegue" id="rt8-5y-Lvy"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-6C-NPc">
@@ -94,7 +94,7 @@
                                 <rect key="frame" x="154" y="351" width="67" height="30"/>
                                 <state key="normal" title="Continuar"/>
                                 <connections>
-                                    <segue destination="9gf-Fw-xEf" kind="show" id="acc-Uu-8Xu"/>
+                                    <segue destination="9gf-Fw-xEf" kind="show" identifier="goToPaymentMethod" id="acc-Uu-8Xu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el monto a pagar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT3-mf-l8N">
@@ -118,10 +118,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="sWl-zu-2Y7"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="5ef-iB-dSh" id="LUT-3A-gnB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="135"/>
+            <point key="canvasLocation" x="817" y="133"/>
         </scene>
         <!--Payment Method View Controller-->
         <scene sceneID="dYS-k0-vq5">
@@ -155,7 +158,7 @@
                                 <rect key="frame" x="154" y="351" width="67" height="30"/>
                                 <state key="normal" title="Continuar"/>
                                 <connections>
-                                    <segue destination="qt0-n6-bak" kind="show" id="L1c-3A-Mf8"/>
+                                    <segue destination="qt0-n6-bak" kind="show" identifier="goToCardIssuer" id="L1c-3A-Mf8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione un método de pago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tob-Kk-M0k">
@@ -181,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JG-4j-U7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1521" y="132"/>
         </scene>
         <!--Card Issuers View Controller-->
         <scene sceneID="9Ga-Mo-7yc">
@@ -215,7 +218,7 @@
                                 <rect key="frame" x="154" y="351" width="67" height="30"/>
                                 <state key="normal" title="Continuar"/>
                                 <connections>
-                                    <segue destination="D6Q-bv-hwx" kind="show" id="DgW-Oq-yaX"/>
+                                    <segue destination="D6Q-bv-hwx" kind="show" identifier="goToInstallments" id="DgW-Oq-yaX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione su banco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-WT-IFO">
@@ -245,7 +248,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isU-QA-UaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pwp-cy-9gz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2161" y="134"/>
+            <point key="canvasLocation" x="2249" y="133"/>
         </scene>
         <!--Installments View Controller-->
         <scene sceneID="BHa-II-jjr">
@@ -269,7 +272,7 @@
                                 <rect key="frame" x="159" y="351" width="57" height="30"/>
                                 <state key="normal" title="Finalizar"/>
                                 <connections>
-                                    <segue destination="1r3-Qq-axg" kind="unwind" unwindAction="finishPaymentWithSegue:" id="Oce-1t-tZe"/>
+                                    <segue destination="1r3-Qq-axg" kind="unwind" identifier="finishPaymentProcess" unwindAction="finishPaymentWithSegue:" id="Oce-1t-tZe"/>
                                 </connections>
                             </button>
                         </subviews>

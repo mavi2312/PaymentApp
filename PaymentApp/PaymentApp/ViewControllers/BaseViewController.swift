@@ -9,8 +9,24 @@
 import UIKit
 import Lottie
 
+protocol InfoToBaseViewControllerDelegate{
+    func setAmount(_ amount : String?)
+    func setPaymentMethod(_ paymentMethod: PaymentMethod?)
+    func setCardIssuer(_ cardIssuer: CardIssuer?)
+    func setInstallments(_ installment: Installment?)
+    func getPaymentMethodId() -> String?
+    func getCardIssuerId() -> String?
+    func getAmount() -> String?
+    func getRecommendedMessage() -> String?
+}
+
 class BaseViewController: UIViewController {
     @IBOutlet weak var animationView: UIView!
+    
+    var amount: String? = ""
+    var selectedPaymentMethod: PaymentMethod? = nil
+    var selectedCardIssuer: CardIssuer? = nil
+    var selectedInstallment: Installment? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +44,17 @@ class BaseViewController: UIViewController {
         moneyAnimation.play()
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier ?? "")
+        if segue.identifier == "baseSegue" {
+            if let navigationController = segue.destination as? UINavigationController {
+                if let amountViewController = navigationController.rootViewController as? AmountViewController{
+                    amountViewController.delegate = self
+                }
+            }
+        }
+        
+    }
 }
 
 extension UIView {
@@ -42,3 +68,43 @@ extension UIView {
     }
 }
 
+extension BaseViewController: InfoToBaseViewControllerDelegate{
+    func getRecommendedMessage() -> String? {
+        return self.selectedInstallment?.recommended_message
+    }
+    
+    func getCardIssuerId() -> String? {
+        return self.selectedCardIssuer?.id
+    }
+    
+    func getAmount() -> String? {
+        return self.amount
+    }
+    
+    func getPaymentMethodId() -> String? {
+        return self.selectedPaymentMethod?.id
+    }
+    
+    func setAmount(_ amount: String?) {
+        self.amount = amount
+    }
+    
+    func setPaymentMethod(_ paymentMethod: PaymentMethod?) {
+        self.selectedPaymentMethod = paymentMethod
+    }
+    
+    func setCardIssuer(_ cardIssuer: CardIssuer?) {
+        self.selectedCardIssuer = cardIssuer
+    }
+    
+    func setInstallments(_ installment: Installment?) {
+        self.selectedInstallment = installment
+    }
+    
+
+}
+extension UINavigationController {
+    var rootViewController : UIViewController? {
+        return viewControllers.first
+    }
+}
