@@ -14,10 +14,11 @@ protocol InfoToBaseViewControllerDelegate{
     func setPaymentMethod(_ paymentMethod: PaymentMethod?)
     func setCardIssuer(_ cardIssuer: CardIssuer?)
     func setInstallments(_ installment: Installment?)
-    func getPaymentMethodId() -> String?
-    func getCardIssuerId() -> String?
-    func getAmount() -> String?
-    func getRecommendedMessage() -> String?
+    
+    var amount: String? { get set }
+    var selectedPaymentMethod: PaymentMethod? { get set }
+    var selectedCardIssuer: CardIssuer? { get set }
+    var selectedInstallment: Installment? { get set }
 }
 
 class BaseViewController: UIViewController {
@@ -69,22 +70,6 @@ extension UIView {
 }
 
 extension BaseViewController: InfoToBaseViewControllerDelegate{
-    func getRecommendedMessage() -> String? {
-        return self.selectedInstallment?.recommended_message
-    }
-    
-    func getCardIssuerId() -> String? {
-        return self.selectedCardIssuer?.id
-    }
-    
-    func getAmount() -> String? {
-        return self.amount
-    }
-    
-    func getPaymentMethodId() -> String? {
-        return self.selectedPaymentMethod?.id
-    }
-    
     func setAmount(_ amount: String?) {
         self.amount = amount
     }

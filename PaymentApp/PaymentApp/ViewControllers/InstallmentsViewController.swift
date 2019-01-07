@@ -9,40 +9,78 @@
 import UIKit
 
 class InstallmentsViewController: UIViewController {
-
+    
+    @IBOutlet weak var installmentTableView: UITableView!{
+        didSet{
+            installmentTableView.rowHeight = UITableView.automaticDimension
+            installmentTableView.estimatedRowHeight = 68
+        }
+    }
     var delegate: InfoToBaseViewControllerDelegate? = nil
-    var instalmentsResponse: [InstallmentsResponse]? = []
+    var instalmentsResponse: [Installment]? = []
+    
+    var selectedInstallment: Installment? = nil
+    
+    let cellIdentifier = "InstallmentTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        installmentTableView.tableFooterView = UIView()
         let networkManager = NetworkAPIManager()
-        let installmentsRequestModel = InstallmentsRequestModel(public_key: networkManager.publicKey, payment_method_id: (delegate?.getPaymentMethodId() ?? ""), amount:  (delegate?.getAmount() ?? ""), issuer_id: (delegate?.getCardIssuerId() ?? ""))
+        let installmentsRequestModel = InstallmentsRequestModel(public_key: networkManager.publicKey, payment_method_id: (delegate?.selectedPaymentMethod?.id ?? ""), amount:  (delegate?.amount ?? ""), issuer_id: (delegate?.selectedCardIssuer?.id ?? ""))
         if let params = try? installmentsRequestModel.asDictionary(){
             networkManager.request(urlString: .installments, params: params){
                 (response: [InstallmentsResponse]?, error: ErrorTypes?) in
                 print("response?[0].name: \(response?[0].payer_costs?[0].recommended_message ?? "")")
-                self.instalmentsResponse = response
+                self.instalmentsResponse = response?[0].payer_costs
+                self.installmentTableView.reloadData()
             }
         }
         // Do any additional setup after loading the view.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "finishPaymentProcess" {
-            delegate?.setInstallments(instalmentsResponse?[0].payer_costs?[0])
-            /*if let installmentsViewController = segue.destination as? InstallmentsViewController{
-                installmentsViewController.delegate = self.delegate
-            }*/
+            delegate?.setInstallments(selectedInstallment)
+            
         }
     }
     
-
+    
+    @IBAction func validateSelectedInstallment(_ sender: Any) {
+        if selectedInstallment != nil {
+            performSegue(withIdentifier: "finishPaymentProcess", sender: nil)
+        }
+    }
+    
+    
 }
+
+extension InstallmentsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return instalmentsResponse?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? InstallmentTableViewCell {
+            cell.recommendedMessage = instalmentsResponse?[indexPath.item].recommended_message ?? ""
+            //cell.delegate = self
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedInstallment = instalmentsResponse?[indexPath.row]
+    }
+}
+
+
+

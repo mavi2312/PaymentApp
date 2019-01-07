@@ -14,6 +14,12 @@ class PaymentMethodViewController: UIViewController {
     
     var paymentMethods: [PaymentMethod]? = []
     
+    let cellIdentifier = "PaymentMethodCollectionViewCell"
+    
+    var selectedPaymentMethod: PaymentMethod? = nil
+    
+    @IBOutlet weak var paymentMethodsCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let networkManager = NetworkAPIManager()
@@ -23,6 +29,7 @@ class PaymentMethodViewController: UIViewController {
                 (response: [PaymentMethod]?, error: ErrorTypes?) in
                 print("response?[0].name: \(response?[0].name ?? "")")
                 self.paymentMethods = response
+                self.paymentMethodsCollectionView.reloadData()
             }
         }
         // Do any additional setup after loading the view.
@@ -37,12 +44,48 @@ class PaymentMethodViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToCardIssuer" {
-            delegate?.setPaymentMethod(paymentMethods?[0])
+            delegate?.setPaymentMethod(selectedPaymentMethod)
             if let cardIssuersViewController = segue.destination as? CardIssuersViewController{
                 cardIssuersViewController.delegate = self.delegate
             }
         }
     }
     
-
+    @IBAction func validateSelectedPaymentMethod(_ sender: Any) {
+        if selectedPaymentMethod != nil {
+            performSegue(withIdentifier: "goToCardIssuer", sender: nil)
+        }
+    }
+    
+}
+extension PaymentMethodViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.paymentMethods?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PaymentMethodCollectionViewCell {
+            cell.viewModel = PaymentMethodCollectionViewCell.ViewModel(paymentMethods?[indexPath.item])
+            //cell.delegate = self
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedPaymentMethod = paymentMethods?[indexPath.row]
+    }
+    
+    
+    
+    
+}
+extension PaymentMethodCollectionViewCell.ViewModel{
+    init(_ paymentMethod: PaymentMethod?){
+        id = paymentMethod?.id ?? ""
+        imagePath = paymentMethod?.secure_thumbnail ?? ""
+        name = paymentMethod?.name ?? ""
+        isSelected = false
+    }
+        
 }

@@ -22,6 +22,8 @@
 		0C1CB75821DED02F0076B1BC /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75721DED02F0076B1BC /* NetworkAPIManager.swift */; };
 		0C1CB75B21DED6DD0076B1BC /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75A21DED6DD0076B1BC /* ResponseObjects.swift */; };
 		0C1CB75D21DED6EB0076B1BC /* RequestObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75C21DED6EB0076B1BC /* RequestObjects.swift */; };
+		0C1CB76621E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB76521E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift */; };
+		0C1CB76821E2A9350076B1BC /* InstallmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB76721E2A9350076B1BC /* InstallmentTableViewCell.swift */; };
 		62CACA77628C861EF5BF0204 /* Pods_PaymentAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 599571978898CBF68FEC4896 /* Pods_PaymentAppTests.framework */; };
 		C73FE223B4CF030790DABB0B /* Pods_PaymentApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8951A2C55B62F134DE0A8F7 /* Pods_PaymentApp.framework */; };
 		CFAA87E927902A30CF3F5A75 /* Pods_PaymentAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93882F570B4EE600B1BBC7ED /* Pods_PaymentAppUITests.framework */; };
@@ -66,6 +68,8 @@
 		0C1CB75721DED02F0076B1BC /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
 		0C1CB75A21DED6DD0076B1BC /* ResponseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		0C1CB75C21DED6EB0076B1BC /* RequestObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestObjects.swift; sourceTree = "<group>"; };
+		0C1CB76521E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C1CB76721E2A9350076B1BC /* InstallmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentTableViewCell.swift; sourceTree = "<group>"; };
 		3DB490C290BE48EF90DD0681 /* Pods-PaymentAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentAppTests/Pods-PaymentAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		599571978898CBF68FEC4896 /* Pods_PaymentAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBB90B9F58B9CFCBE876834 /* Pods-PaymentAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentAppUITests/Pods-PaymentAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		0C1CB75521DECFA30076B1BC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C1CB76421E0FEAB0076B1BC /* Cells */,
 				0C0E1F0F21DD830D001B9452 /* BaseViewController.swift */,
 				0C0E1F3B21DD8828001B9452 /* AmountViewController.swift */,
 				0C0E1F3D21DD8840001B9452 /* PaymentMethodViewController.swift */,
@@ -188,6 +193,15 @@
 				0C1CB75C21DED6EB0076B1BC /* RequestObjects.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		0C1CB76421E0FEAB0076B1BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0C1CB76521E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift */,
+				0C1CB76721E2A9350076B1BC /* InstallmentTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		93BB7216A321DE4B239519B0 /* Pods */ = {
@@ -389,11 +403,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +448,8 @@
 				0C0E1F1021DD830D001B9452 /* BaseViewController.swift in Sources */,
 				0C0E1F0E21DD830D001B9452 /* AppDelegate.swift in Sources */,
 				0C1CB75821DED02F0076B1BC /* NetworkAPIManager.swift in Sources */,
+				0C1CB76621E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift in Sources */,
+				0C1CB76821E2A9350076B1BC /* InstallmentTableViewCell.swift in Sources */,
 				0C0E1F3E21DD8840001B9452 /* PaymentMethodViewController.swift in Sources */,
 				0C0E1F4021DD884D001B9452 /* CardIssuersViewController.swift in Sources */,
 				0C0E1F3C21DD8828001B9452 /* AmountViewController.swift in Sources */,

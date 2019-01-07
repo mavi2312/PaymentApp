@@ -38,7 +38,23 @@ class AmountViewController: UIViewController {
     
     
     @IBAction func finishPayment(segue:UIStoryboardSegue){
-        print("Amount: \(delegate?.getAmount() ?? "error"), PaymentMethod: \(delegate?.getPaymentMethodId() ?? "error"), CardIssuer: \(delegate?.getCardIssuerId() ?? "error"), Installments: \(delegate?.getRecommendedMessage() ?? "error")")
+        print("Amount: \(delegate?.amount ?? "error"), PaymentMethod: \(delegate?.selectedPaymentMethod?.name ?? "error"), CardIssuer: \(delegate?.selectedCardIssuer?.name ?? "error"), Installments: \(delegate?.selectedInstallment?.recommended_message ?? "error")")
+    }
+    
+    @IBAction func validateAmount(_ sender: Any) {
+        if !(amountTextField.text?.isEmpty ?? true), amountTextField.text?.isNumeric ?? false {
+            performSegue(withIdentifier: "goToPaymentMethod", sender: nil)
+        } else {
+            print("Error: \(amountTextField.text ?? "error")")
+        }
     }
 
+}
+
+extension String {
+    var isNumeric: Bool {
+        guard self.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self).isSubset(of: nums)
+    }
 }
