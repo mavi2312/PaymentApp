@@ -26,9 +26,19 @@ class CardIssuersViewController: UIViewController {
         if let params = try? cardIssuersRequestModel.asDictionary(){
             networkManager.request(urlString: .cardIssuers, params: params){
                 (response: [CardIssuer]?, error: ErrorTypes?) in
-                print("response?[0].name: \(response?[0].name ?? "")")
-                self.cardIssuers = response
-                self.cardIssuersCollectionView.reloadData()
+                if let networkError = error {
+                    print(networkError.message)
+                    //Error Dialog
+                } else {
+                    if (response?.count ?? 0) > 0 {
+                        self.cardIssuers = response
+                        self.cardIssuersCollectionView.reloadData()
+                    } else {
+                        let emptyError: ErrorTypes = .emptyListError
+                        print(emptyError.message)
+                    }
+                    
+                }
             }
         }
         // Do any additional setup after loading the view.

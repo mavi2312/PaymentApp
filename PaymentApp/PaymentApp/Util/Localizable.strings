@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  PaymentApp
+
+  Created by Consultor on 1/7/19.
+  Copyright © 2019 Mavzapps. All rights reserved.
+*/
+
+"errors.network.general" = "There has been an network error.\nCheck your network connection and try again";
+
+"errors.general" = "There has been an error";
+
+"errors.noresults" = "There are no results for your selection";
+
+"errors.action.reload" = "Reconnect";
+
+"errors.action.tryagain" = "Try again";

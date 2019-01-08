@@ -28,10 +28,10 @@ public class NetworkAPIManager {
             
             if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
-                let moviesResponse = try? JSONDecoder().decode(T.self, from: data)
-                completionHandler(moviesResponse, nil)
+                let listResponse = try? JSONDecoder().decode(T.self, from: data)
+                completionHandler(listResponse, nil)
             } else {
-                completionHandler(nil,ErrorTypes.networkError)
+                completionHandler(nil, ErrorTypes.networkError)
             }
         }
     }
@@ -43,32 +43,23 @@ public enum PaymentAPIUrl: String{
     case installments = "payment_methods/installments"
 }
 
-enum ErrorTypes: Error{
+public enum ErrorTypes: Error{
     case networkError
-    case savingError
-    case removingError
-    case emptyFavoritesError
     case emptyListError
     case genericError
     
     var message: String {
         switch self {
         case .networkError:         return "errors.network.general"
-        case .savingError:          return "errors.favorites.save"
-        case .removingError:        return "errors.favorites.remove"
-        case .genericError:         return "errors.network.movies"
-        case .emptyFavoritesError:  return "errors.favorites.empty"
-        case .emptyListError:       return "errors.search.noresults"
+        case .genericError:         return "errors.general"
+        case .emptyListError:       return "errors.noresults"
         }
     }
     
     var buttonTitle: String {
         switch self {
         case .networkError:         return "errors.action.reload"
-        case .savingError:          return "errors.action.tryagain"
-        case .removingError:        return "errors.action.tryagain"
         case .genericError:         return "errors.action.tryagain"
-        case .emptyFavoritesError:  return "errors.action.gohome"
         case .emptyListError:       return "errors.action.tryagain"
         }
     }
@@ -76,10 +67,7 @@ enum ErrorTypes: Error{
     var image: UIImage?{
         switch self {
         case .networkError:         return UIImage(named: "networkErrorImage")
-        case .savingError:          return UIImage(named: "favoriteErrorImage")
-        case .removingError:        return UIImage(named: "favoriteErrorImage")
         case .genericError:         return UIImage(named: "errorImage")
-        case .emptyFavoritesError:  return UIImage(named: "favoriteErrorImage")
         case .emptyListError:       return UIImage(named: "searchErrorImage")
         }
     }

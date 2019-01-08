@@ -27,9 +27,22 @@ class PaymentMethodViewController: UIViewController {
         if let params = try? paymentMethodRequestModel.asDictionary(){
             networkManager.request(urlString: .paymentMethods, params: params){
                 (response: [PaymentMethod]?, error: ErrorTypes?) in
-                print("response?[0].name: \(response?[0].name ?? "")")
-                self.paymentMethods = response
-                self.paymentMethodsCollectionView.reloadData()
+                if let networkError = error {
+                    print(networkError.message)
+                    //Error Dialog
+                } else {
+                    //print("response?[0].name: \(response?[0].name ?? "")")
+                    if (response?.count ?? 0) > 0 {
+                        self.paymentMethods = response
+                        self.paymentMethodsCollectionView.reloadData()
+                    } else {
+                        let emptyError: ErrorTypes = .emptyListError
+                        print(emptyError.message)
+                        
+                        //Error Dialog
+                    }
+                    
+                }
             }
         }
         // Do any additional setup after loading the view.

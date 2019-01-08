@@ -31,9 +31,19 @@ class InstallmentsViewController: UIViewController {
         if let params = try? installmentsRequestModel.asDictionary(){
             networkManager.request(urlString: .installments, params: params){
                 (response: [InstallmentsResponse]?, error: ErrorTypes?) in
-                print("response?[0].name: \(response?[0].payer_costs?[0].recommended_message ?? "")")
-                self.instalmentsResponse = response?[0].payer_costs
-                self.installmentTableView.reloadData()
+                if let networkError = error {
+                    print(networkError.message)
+                    //Error Dialog
+                } else {
+                    if (response?.count ?? 0) > 0 {
+                        self.instalmentsResponse = response?[0].payer_costs
+                        self.installmentTableView.reloadData()
+                    } else {
+                        let emptyError: ErrorTypes = .emptyListError
+                        print(emptyError.message)
+                    }
+                    
+                }
             }
         }
         // Do any additional setup after loading the view.

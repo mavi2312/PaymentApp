@@ -39,6 +39,8 @@ class AmountViewController: UIViewController {
     
     @IBAction func finishPayment(segue:UIStoryboardSegue){
         print("Amount: \(delegate?.amount ?? "error"), PaymentMethod: \(delegate?.selectedPaymentMethod?.name ?? "error"), CardIssuer: \(delegate?.selectedCardIssuer?.name ?? "error"), Installments: \(delegate?.selectedInstallment?.recommended_message ?? "error")")
+        let finalAlertView = FinalAlertView(delegate?.amount, delegate?.selectedPaymentMethod, delegate?.selectedCardIssuer, delegate?.selectedInstallment)
+        finalAlertView.show(animated: true)
     }
     
     @IBAction func validateAmount(_ sender: Any) {

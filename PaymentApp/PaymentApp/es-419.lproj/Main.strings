@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Finalizar"; ObjectID = "4q4-o0-szO"; */
+"4q4-o0-szO.normalTitle" = "Finalizar";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "8Gb-pl-RVn"; */
+"8Gb-pl-RVn.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "G7T-8P-SrI"; */
+"G7T-8P-SrI.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Mtk-wu-ZJ9"; */
+"Mtk-wu-ZJ9.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NSJ-5t-9E1"; */
+"NSJ-5t-9E1.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "SgF-hH-WIa"; */
+"SgF-hH-WIa.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Seleccione un método de pago"; ObjectID = "Tob-Kk-M0k"; */
+"Tob-Kk-M0k.text" = "Seleccione un método de pago";
+
+/* Class = "UILabel"; text = "Ingrese el monto a pagar"; ObjectID = "nT3-mf-l8N"; */
+"nT3-mf-l8N.text" = "Ingrese el monto a pagar";
+
+/* Class = "UILabel"; text = "Seleccione  las cuotas"; ObjectID = "pzz-v7-SjD"; */
+"pzz-v7-SjD.text" = "Seleccione las cuotas";
+
+/* Class = "UILabel"; text = "Seleccione su banco"; ObjectID = "uHK-WT-IFO"; */
+"uHK-WT-IFO.text" = "Seleccione su banco";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vO8-2s-vhW"; */
+"vO8-2s-vhW.text" = "Label";
