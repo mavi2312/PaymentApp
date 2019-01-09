@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  PaymentApp
+
+  Created by Consultor on 1/7/19.
+  Copyright © 2019 Mavzapps. All rights reserved.
+*/
+
+"errors.network.general" = "Ha ocurrido un error de conexión.\nChequea tu conexión a internet y vuelve a intentarlo";
+
+"errors.general" = "Ha ocurrido un error";
+
+"errors.noresults" = "No hay resultados para tu selección";
+
+"errors.action.reload" = "Reconectar";
+
+"errors.action.tryagain" = "Intentar otra vez";
+
+"errors.message.title" = "¡Ha ocurrido un error!";
+
+"final.alert.title" = "Tu resumen de pago es";
+
+"final.alert.amount" = "Monto a pagar";
+
+"final.alert.paymentMethod" = "Método de pago";
+
+"final.alert.cardIssuer" = "Banco";
+
+"final.alert.installments" = "Cuotas";
+

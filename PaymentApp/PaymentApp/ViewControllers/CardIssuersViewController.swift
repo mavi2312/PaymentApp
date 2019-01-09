@@ -18,17 +18,24 @@ class CardIssuersViewController: UIViewController {
     
     let cellIdentifier = "CardIssuersCollectionViewCell"
     
+    var loadingView = LoadingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let networkManager = NetworkAPIManager()
         let cardIssuersRequestModel = CardIssuerRequestModel(public_key: networkManager.publicKey, payment_method_id: (delegate?.selectedPaymentMethod?.id ?? ""))
         if let params = try? cardIssuersRequestModel.asDictionary(){
+            loadingView.show(animated: true)
             networkManager.request(urlString: .cardIssuers, params: params){
                 (response: [CardIssuer]?, error: ErrorTypes?) in
+                self.loadingView.dismiss(animated: true)
                 if let networkError = error {
                     print(networkError.message)
                     //Error Dialog
+                    let errorDialog = ErrorAlertView(networkError)
+                    errorDialog.delegate = self
+                    errorDialog.show(animated: true)
                 } else {
                     if (response?.count ?? 0) > 0 {
                         self.cardIssuers = response
@@ -36,6 +43,9 @@ class CardIssuersViewController: UIViewController {
                     } else {
                         let emptyError: ErrorTypes = .emptyListError
                         print(emptyError.message)
+                        let errorDialog = ErrorAlertView(emptyError)
+                        errorDialog.delegate = self
+                        errorDialog.show(animated: true)
                     }
                     
                 }
@@ -66,6 +76,9 @@ class CardIssuersViewController: UIViewController {
         }
     }
     
+    @IBAction func goBack(_ sender: Any){
+        navigationController?.popViewController(animated: true)
+    }
 
 }
 extension CardIssuersViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -93,6 +106,12 @@ extension PaymentMethodCollectionViewCell.ViewModel{
         imagePath = cardIssuer?.secure_thumbnail ?? ""
         name = cardIssuer?.name ?? ""
         isSelected = false
+    }
+    
+}
+extension CardIssuersViewController: ErrorActionDelegate {
+    func errorAction() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

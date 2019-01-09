@@ -23,17 +23,24 @@ class InstallmentsViewController: UIViewController {
     
     let cellIdentifier = "InstallmentTableViewCell"
     
+    var loadingView = LoadingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         installmentTableView.tableFooterView = UIView()
         let networkManager = NetworkAPIManager()
         let installmentsRequestModel = InstallmentsRequestModel(public_key: networkManager.publicKey, payment_method_id: (delegate?.selectedPaymentMethod?.id ?? ""), amount:  (delegate?.amount ?? ""), issuer_id: (delegate?.selectedCardIssuer?.id ?? ""))
         if let params = try? installmentsRequestModel.asDictionary(){
+            loadingView.show(animated: true)
             networkManager.request(urlString: .installments, params: params){
                 (response: [InstallmentsResponse]?, error: ErrorTypes?) in
+                self.loadingView.dismiss(animated: true)
                 if let networkError = error {
                     print(networkError.message)
                     //Error Dialog
+                    let errorDialog = ErrorAlertView(networkError)
+                    errorDialog.delegate = self
+                    errorDialog.show(animated: true)
                 } else {
                     if (response?.count ?? 0) > 0 {
                         self.instalmentsResponse = response?[0].payer_costs
@@ -41,6 +48,9 @@ class InstallmentsViewController: UIViewController {
                     } else {
                         let emptyError: ErrorTypes = .emptyListError
                         print(emptyError.message)
+                        let errorDialog = ErrorAlertView(emptyError)
+                        errorDialog.delegate = self
+                        errorDialog.show(animated: true)
                     }
                     
                 }
@@ -70,6 +80,9 @@ class InstallmentsViewController: UIViewController {
         }
     }
     
+    @IBAction func goBack(_ sender: Any){
+        navigationController?.popViewController(animated: true)
+    }
     
 }
 
@@ -92,5 +105,10 @@ extension InstallmentsViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
-
+extension InstallmentsViewController: ErrorActionDelegate {
+    func errorAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
 

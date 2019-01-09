@@ -92,7 +92,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7T-8P-SrI">
                                 <rect key="frame" x="156.5" y="351" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="validateAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U0I-r1-XJh"/>
                                 </connections>
@@ -188,7 +190,9 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgF-hH-WIa">
                                 <rect key="frame" x="156.5" y="351" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="validateSelectedPaymentMethod:" destination="9gf-Fw-xEf" eventType="touchUpInside" id="vY3-xd-826"/>
                                 </connections>
@@ -199,6 +203,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGG-e3-mNQ">
+                                <rect key="frame" x="20" y="20" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="joV-jp-v7T"/>
+                                    <constraint firstAttribute="width" constant="24" id="ldz-Ml-zgG"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="9gf-Fw-xEf" eventType="touchUpInside" id="ytk-0g-EDU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -206,10 +221,12 @@
                             <constraint firstItem="SgF-hH-WIa" firstAttribute="top" secondItem="ra9-6V-iuC" secondAttribute="bottom" constant="24" id="GYw-h4-rCx"/>
                             <constraint firstItem="ra9-6V-iuC" firstAttribute="width" secondItem="cbZ-hH-yqP" secondAttribute="width" multiplier="0.75" id="SDA-4T-edx"/>
                             <constraint firstItem="Tob-Kk-M0k" firstAttribute="top" secondItem="cbZ-hH-yqP" secondAttribute="top" constant="55" id="e1i-QC-Nji"/>
+                            <constraint firstItem="rGG-e3-mNQ" firstAttribute="top" secondItem="LQR-7I-qjX" secondAttribute="top" constant="20" id="f4Z-zf-O6Y"/>
                             <constraint firstItem="SgF-hH-WIa" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="fQu-8S-XGV"/>
                             <constraint firstItem="ra9-6V-iuC" firstAttribute="top" secondItem="Tob-Kk-M0k" secondAttribute="bottom" constant="24" id="hhM-OJ-hgN"/>
                             <constraint firstItem="ra9-6V-iuC" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xQd-Wj-G9L"/>
                             <constraint firstItem="Tob-Kk-M0k" firstAttribute="centerX" secondItem="cbZ-hH-yqP" secondAttribute="centerX" id="xhk-Ir-M5r"/>
+                            <constraint firstItem="rGG-e3-mNQ" firstAttribute="leading" secondItem="LQR-7I-qjX" secondAttribute="leading" constant="20" id="xoX-If-41D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LQR-7I-qjX"/>
                     </view>
@@ -283,7 +300,9 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-pl-RVn">
                                 <rect key="frame" x="156.5" y="351" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="validateSelectedCardIssuer:" destination="qt0-n6-bak" eventType="touchUpInside" id="lEg-cg-j97"/>
                                 </connections>
@@ -294,6 +313,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-aS-1ib">
+                                <rect key="frame" x="20" y="20" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="2GH-tK-KfY"/>
+                                    <constraint firstAttribute="width" constant="24" id="bxs-2B-GeN"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="qt0-n6-bak" eventType="touchUpInside" id="BdG-vY-CGR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -304,6 +334,8 @@
                             <constraint firstItem="8Gb-pl-RVn" firstAttribute="top" secondItem="cRz-ca-OIN" secondAttribute="bottom" constant="24" id="VGM-n3-8KI"/>
                             <constraint firstItem="cRz-ca-OIN" firstAttribute="centerX" secondItem="ZEa-KI-5v2" secondAttribute="centerX" id="VxB-bz-xFq"/>
                             <constraint firstItem="cRz-ca-OIN" firstAttribute="top" secondItem="uHK-WT-IFO" secondAttribute="bottom" constant="24" id="anD-fM-3hU"/>
+                            <constraint firstItem="RAe-aS-1ib" firstAttribute="top" secondItem="ZEa-KI-5v2" secondAttribute="top" constant="20" id="it9-Pa-0r1"/>
+                            <constraint firstItem="RAe-aS-1ib" firstAttribute="leading" secondItem="ZEa-KI-5v2" secondAttribute="leading" constant="20" id="lAR-kx-8iz"/>
                             <constraint firstItem="uHK-WT-IFO" firstAttribute="top" secondItem="ZEa-KI-5v2" secondAttribute="top" constant="55" id="zaK-Ju-7Rg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZEa-KI-5v2"/>
@@ -368,15 +400,30 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q4-o0-szO">
                                 <rect key="frame" x="167" y="351" width="41" height="30"/>
-                                <state key="normal" title="Finish"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="validateSelectedInstallment:" destination="D6Q-bv-hwx" eventType="touchUpInside" id="41X-R5-cV7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYq-rR-aJL">
+                                <rect key="frame" x="20" y="20" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="w0O-mT-erv"/>
+                                    <constraint firstAttribute="width" constant="24" id="zs0-3y-dc1"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="D6Q-bv-hwx" eventType="touchUpInside" id="4cS-5J-swf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pzz-v7-SjD" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="38h-DF-Elh"/>
+                            <constraint firstItem="XYq-rR-aJL" firstAttribute="leading" secondItem="St5-0h-hZk" secondAttribute="leading" constant="20" id="BCW-gy-eW2"/>
+                            <constraint firstItem="XYq-rR-aJL" firstAttribute="top" secondItem="St5-0h-hZk" secondAttribute="top" constant="20" id="Cfl-CS-igD"/>
                             <constraint firstItem="4q4-o0-szO" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="GxI-IP-h2d"/>
                             <constraint firstItem="pzz-v7-SjD" firstAttribute="top" secondItem="St5-0h-hZk" secondAttribute="top" constant="55" id="Poh-dK-DQk"/>
                             <constraint firstItem="NHV-Wi-JdG" firstAttribute="centerX" secondItem="St5-0h-hZk" secondAttribute="centerX" id="VTf-dB-6uu"/>
@@ -399,6 +446,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="48" height="48"/>
         <image name="mercadoPagoImage" width="735" height="219"/>
     </resources>
 </document>

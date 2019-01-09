@@ -24,7 +24,12 @@
 		0C1855A121E41B4D00FB888F /* FinalAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855A021E41B4D00FB888F /* FinalAlertView.xib */; };
 		0C1855A421E42AE300FB888F /* ErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1855A321E42AE300FB888F /* ErrorAlertView.swift */; };
 		0C1855A621E42B0800FB888F /* ErrorAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855A521E42B0800FB888F /* ErrorAlertView.xib */; };
-		0C1855AA21E438B900FB888F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855A921E438B900FB888F /* Localizable.strings */; };
+		0C1855B021E5716600FB888F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1855AE21E5716600FB888F /* UIViewExtension.swift */; };
+		0C1855B121E5716600FB888F /* LocalizableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1855AF21E5716600FB888F /* LocalizableProtocol.swift */; };
+		0C1855B221E57ACC00FB888F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855B421E57ACC00FB888F /* Localizable.strings */; };
+		0C1855B721E57CCA00FB888F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1855B621E57CCA00FB888F /* LoadingView.swift */; };
+		0C1855B921E57CDE00FB888F /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855B821E57CDE00FB888F /* LoadingView.xib */; };
+		0C1855BB21E57E7200FB888F /* jumping_coins.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C1855BA21E57E7200FB888F /* jumping_coins.json */; };
 		0C1CB75821DED02F0076B1BC /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75721DED02F0076B1BC /* NetworkAPIManager.swift */; };
 		0C1CB75B21DED6DD0076B1BC /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75A21DED6DD0076B1BC /* ResponseObjects.swift */; };
 		0C1CB75D21DED6EB0076B1BC /* RequestObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB75C21DED6EB0076B1BC /* RequestObjects.swift */; };
@@ -78,7 +83,15 @@
 		0C1855A521E42B0800FB888F /* ErrorAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorAlertView.xib; sourceTree = "<group>"; };
 		0C1855A721E437F300FB888F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
 		0C1855A821E437F300FB888F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		0C1855A921E438B900FB888F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		0C1855AE21E5716600FB888F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		0C1855AF21E5716600FB888F /* LocalizableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableProtocol.swift; sourceTree = "<group>"; };
+		0C1855B321E57ACC00FB888F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0C1855B521E57AD100FB888F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0C1855B621E57CCA00FB888F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0C1855B821E57CDE00FB888F /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		0C1855BA21E57E7200FB888F /* jumping_coins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jumping_coins.json; sourceTree = "<group>"; };
+		0C1855BD21E5855B00FB888F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0C1855BF21E5857A00FB888F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0C1CB75721DED02F0076B1BC /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
 		0C1CB75A21DED6DD0076B1BC /* ResponseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		0C1CB75C21DED6EB0076B1BC /* RequestObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestObjects.swift; sourceTree = "<group>"; };
@@ -182,9 +195,11 @@
 		0C18559B21E4188300FB888F /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0C1855AF21E5716600FB888F /* LocalizableProtocol.swift */,
+				0C1855AE21E5716600FB888F /* UIViewExtension.swift */,
 				0C1855A221E42AC100FB888F /* AlertViews */,
 				0C18559C21E418BB00FB888F /* Modal.swift */,
-				0C1855A921E438B900FB888F /* Localizable.strings */,
+				0C1855B421E57ACC00FB888F /* Localizable.strings */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -196,6 +211,8 @@
 				0C1855A021E41B4D00FB888F /* FinalAlertView.xib */,
 				0C1855A321E42AE300FB888F /* ErrorAlertView.swift */,
 				0C1855A521E42B0800FB888F /* ErrorAlertView.xib */,
+				0C1855B621E57CCA00FB888F /* LoadingView.swift */,
+				0C1855B821E57CDE00FB888F /* LoadingView.xib */,
 			);
 			path = AlertViews;
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 		0C1CB75621DECFC00076B1BC /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				0C1855BA21E57E7200FB888F /* jumping_coins.json */,
 				0C0E1F4321DD9608001B9452 /* money.json */,
 			);
 			path = Animations;
@@ -353,6 +371,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = 0C0E1F0121DD830D001B9452;
 			productRefGroup = 0C0E1F0B21DD830D001B9452 /* Products */;
@@ -372,9 +391,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0E1F1821DD830F001B9452 /* LaunchScreen.storyboard in Resources */,
+				0C1855BB21E57E7200FB888F /* jumping_coins.json in Resources */,
+				0C1855B921E57CDE00FB888F /* LoadingView.xib in Resources */,
 				0C0E1F1521DD830F001B9452 /* Assets.xcassets in Resources */,
 				0C1855A621E42B0800FB888F /* ErrorAlertView.xib in Resources */,
-				0C1855AA21E438B900FB888F /* Localizable.strings in Resources */,
+				0C1855B221E57ACC00FB888F /* Localizable.strings in Resources */,
 				0C0E1F4421DD9608001B9452 /* money.json in Resources */,
 				0C1855A121E41B4D00FB888F /* FinalAlertView.xib in Resources */,
 				0C0E1F1321DD830D001B9452 /* Main.storyboard in Resources */,
@@ -481,13 +502,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1855B021E5716600FB888F /* UIViewExtension.swift in Sources */,
 				0C0E1F4221DD88E9001B9452 /* InstallmentsViewController.swift in Sources */,
 				0C1CB75B21DED6DD0076B1BC /* ResponseObjects.swift in Sources */,
 				0C1CB75D21DED6EB0076B1BC /* RequestObjects.swift in Sources */,
+				0C1855B721E57CCA00FB888F /* LoadingView.swift in Sources */,
 				0C0E1F1021DD830D001B9452 /* BaseViewController.swift in Sources */,
 				0C0E1F0E21DD830D001B9452 /* AppDelegate.swift in Sources */,
 				0C1CB75821DED02F0076B1BC /* NetworkAPIManager.swift in Sources */,
 				0C1CB76621E0FECB0076B1BC /* PaymentMethodCollectionViewCell.swift in Sources */,
+				0C1855B121E5716600FB888F /* LocalizableProtocol.swift in Sources */,
 				0C18559D21E418BB00FB888F /* Modal.swift in Sources */,
 				0C1855A421E42AE300FB888F /* ErrorAlertView.swift in Sources */,
 				0C18559F21E419F200FB888F /* FinalAlertView.swift in Sources */,
@@ -535,6 +559,7 @@
 			children = (
 				0C0E1F1221DD830D001B9452 /* Base */,
 				0C1855A721E437F300FB888F /* es-419 */,
+				0C1855BF21E5857A00FB888F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -544,8 +569,18 @@
 			children = (
 				0C0E1F1721DD830F001B9452 /* Base */,
 				0C1855A821E437F300FB888F /* es-419 */,
+				0C1855BD21E5855B00FB888F /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0C1855B421E57ACC00FB888F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C1855B321E57ACC00FB888F /* en */,
+				0C1855B521E57AD100FB888F /* es-419 */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

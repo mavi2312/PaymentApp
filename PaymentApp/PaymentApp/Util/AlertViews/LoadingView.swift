@@ -1,35 +1,25 @@
 //
-//  ErrorAlertView.swift
+//  LoadingView.swift
 //  PaymentApp
 //
-//  Created by Consultor on 1/7/19.
+//  Created by Consultor on 1/8/19.
 //  Copyright © 2019 Mavzapps. All rights reserved.
 //
 
 import UIKit
+import Lottie
 
-protocol ErrorActionDelegate {
-    func errorAction()
-}
-
-class ErrorAlertView: UIView, Modal{
+class LoadingView: UIView, Modal{
     
     var backgroundView = UIView()
     
     var dialogView = UIView()
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var errorImageView: UIImageView!
-    @IBOutlet weak var errorButton: UIButton!
+    @IBOutlet weak var animationContainerView: UIView!
     
-    var error: ErrorTypes? = nil
-    
-    var delegate: ErrorActionDelegate? = nil
-    
-    convenience init(_ error: ErrorTypes?){
+    convenience init(){
         self.init(frame: UIScreen.main.bounds)
-        self.error = error
         loadAlertView()
     }
     
@@ -51,7 +41,7 @@ class ErrorAlertView: UIView, Modal{
         addSubview(backgroundView)
         addConstraintsToBackground()
         
-        Bundle.main.loadNibNamed("ErrorAlertView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("LoadingView", owner: self, options: nil)
         dialogView = contentView
         addSubview(dialogView)
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
@@ -60,11 +50,15 @@ class ErrorAlertView: UIView, Modal{
         
         addConstraintsToDialog()
         
-        backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(didTapOnBackgroundView)))
+        let animationView = LOTAnimationView(name: "jumping_coins")
+        animationContainerView.addSubview(animationView)
+        animationView.addConstraintsToCenter()
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopAnimation = true
+        animationView.autoReverseAnimation = true
+        animationView.play()
         
-        errorLabel.text = NSLocalizedString(error?.message ?? "", comment: "")
-        errorImageView.image = error?.image
-        errorButton.setTitle(NSLocalizedString(error?.buttonTitle ?? "", comment: ""), for: .normal)
+        
         
     }
     
@@ -82,18 +76,17 @@ class ErrorAlertView: UIView, Modal{
         
         let centerX = NSLayoutConstraint(item: dialogView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let centerY = NSLayoutConstraint(item: dialogView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
-        let width = NSLayoutConstraint(item: dialogView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.width, multiplier: 0.9, constant: 0)
-        //let height = NSLayoutConstraint(item: dialogView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.height, multiplier: 0.5, constant: 0)
-        addConstraints([centerX, centerY, width/*, height*/])
+        let width = NSLayoutConstraint(item: dialogView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0)
+        let height = NSLayoutConstraint(item: dialogView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0)
+        addConstraints([centerX, centerY, width, height])
     }
-    
-    @objc func didTapOnBackgroundView(){
-        dismiss(animated: true)
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
     }
-    
-    @IBAction func closeAlertViewAction(_ sender: Any) {
-        dismiss(animated: true)
-        delegate?.errorAction()
-    }
+    */
 
 }

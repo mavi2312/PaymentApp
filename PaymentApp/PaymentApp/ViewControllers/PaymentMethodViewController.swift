@@ -20,16 +20,23 @@ class PaymentMethodViewController: UIViewController {
     
     @IBOutlet weak var paymentMethodsCollectionView: UICollectionView!
     
+    var loadingView = LoadingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let networkManager = NetworkAPIManager()
         let paymentMethodRequestModel = PaymentMethodRequestModel(public_key: networkManager.publicKey)
         if let params = try? paymentMethodRequestModel.asDictionary(){
+            loadingView.show(animated: true)
             networkManager.request(urlString: .paymentMethods, params: params){
                 (response: [PaymentMethod]?, error: ErrorTypes?) in
+                self.loadingView.dismiss(animated: true)
                 if let networkError = error {
                     print(networkError.message)
                     //Error Dialog
+                    let errorDialog = ErrorAlertView(networkError)
+                    errorDialog.delegate = self
+                    errorDialog.show(animated: true)
                 } else {
                     //print("response?[0].name: \(response?[0].name ?? "")")
                     if (response?.count ?? 0) > 0 {
@@ -38,7 +45,9 @@ class PaymentMethodViewController: UIViewController {
                     } else {
                         let emptyError: ErrorTypes = .emptyListError
                         print(emptyError.message)
-                        
+                        let errorDialog = ErrorAlertView(emptyError)
+                        errorDialog.delegate = self
+                        errorDialog.show(animated: true)
                         //Error Dialog
                     }
                     
@@ -70,6 +79,10 @@ class PaymentMethodViewController: UIViewController {
         }
     }
     
+    @IBAction func goBack(_ sender: Any){
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension PaymentMethodViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,9 +102,6 @@ extension PaymentMethodViewController: UICollectionViewDelegate, UICollectionVie
         selectedPaymentMethod = paymentMethods?[indexPath.row]
     }
     
-    
-    
-    
 }
 extension PaymentMethodCollectionViewCell.ViewModel{
     init(_ paymentMethod: PaymentMethod?){
@@ -101,4 +111,10 @@ extension PaymentMethodCollectionViewCell.ViewModel{
         isSelected = false
     }
         
+}
+
+extension PaymentMethodViewController: ErrorActionDelegate {
+    func errorAction() {
+        navigationController?.popViewController(animated: true)
+    }
 }

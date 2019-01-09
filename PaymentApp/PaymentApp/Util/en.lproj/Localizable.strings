@@ -15,3 +15,16 @@
 "errors.action.reload" = "Reconnect";
 
 "errors.action.tryagain" = "Try again";
+
+"errors.message.title" = "An error has occurred!";
+
+"final.alert.title" = "Your payment summary is";
+
+"final.alert.amount" = "Amount to pay";
+
+"final.alert.paymentMethod" = "Payment Method";
+
+"final.alert.cardIssuer" = "Card Issuer";
+
+"final.alert.installments" = "Installments";
+
