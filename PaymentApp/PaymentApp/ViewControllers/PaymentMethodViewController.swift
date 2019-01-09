@@ -76,6 +76,12 @@ class PaymentMethodViewController: UIViewController {
     @IBAction func validateSelectedPaymentMethod(_ sender: Any) {
         if selectedPaymentMethod != nil {
             performSegue(withIdentifier: "goToCardIssuer", sender: nil)
+        } else {
+            let invalidError: ErrorTypes = .unselectedMethodError
+            print(invalidError.message)
+            let errorDialog = ErrorAlertView(invalidError)
+            //errorDialog.delegate = self
+            errorDialog.show(animated: true)
         }
     }
     

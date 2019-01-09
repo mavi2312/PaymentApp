@@ -25,7 +25,7 @@ class PaymentMethodCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet{
             if isSelected {
-                backgroundColor = .lightGray
+                backgroundColor = UIColor(white: 0.8, alpha: 0.7)
             } else {
                 backgroundColor = .white
             }

@@ -77,6 +77,12 @@ class InstallmentsViewController: UIViewController {
     @IBAction func validateSelectedInstallment(_ sender: Any) {
         if selectedInstallment != nil {
             performSegue(withIdentifier: "finishPaymentProcess", sender: nil)
+        } else {
+            let invalidError: ErrorTypes = .unselectedInstallmentsError
+            print(invalidError.message)
+            let errorDialog = ErrorAlertView(invalidError)
+            //errorDialog.delegate = self
+            errorDialog.show(animated: true)
         }
     }
     

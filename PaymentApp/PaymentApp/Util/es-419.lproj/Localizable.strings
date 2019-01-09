@@ -28,3 +28,12 @@
 
 "final.alert.installments" = "Cuotas";
 
+"errors.validation.emptyAmount" = "Debe ingresar un monto para iniciar el proceso";
+
+"errors.validation.invalidAmount" = "Debe ingresar un número válido para iniciar el proceso";
+
+"errors.validation.unselectedMethod" = "Debe seleccionar un método de pago para continuar el proceso";
+
+"errors.validation.unselectedIssuer" = "Debe seleccionar un banco para continuar el proceso";
+
+"errors.validation.unselectedInstallments" = "Debe seleccionar el número de cuotas para finalizar el proceso";

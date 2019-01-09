@@ -28,3 +28,13 @@
 
 "final.alert.installments" = "Installments";
 
+"errors.validation.emptyAmount" = "You must enter an amount to start the process";
+
+"errors.validation.invalidAmount" = "You must enter a valid number to start the process";
+
+"errors.validation.unselectedMethod" = "You must select a payment method to continue the process";
+
+"errors.validation.unselectedIssuer" = "You must select a card issuer to continue the process";
+
+"errors.validation.unselectedInstallments" = "You must select a number of installments to finish the process";
+

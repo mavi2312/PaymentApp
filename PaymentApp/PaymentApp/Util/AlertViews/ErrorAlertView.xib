@@ -27,8 +27,8 @@
                     <rect key="frame" x="19" y="20.5" width="337.5" height="364.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Ha ocurrido un error!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-UN-JlO">
-                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="31"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
@@ -36,16 +36,19 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uZh-5d-Sn0">
-                            <rect key="frame" x="0.0" y="30.5" width="337.5" height="263"/>
+                            <rect key="frame" x="0.0" y="41" width="337.5" height="199"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiY-Uw-RJ8">
-                            <rect key="frame" x="0.0" y="303.5" width="337.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="250" width="337.5" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="UNk-AM-wI6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vj-wI-HGH">
-                            <rect key="frame" x="0.0" y="334" width="337.5" height="30.5"/>
+                            <rect key="frame" x="0.0" y="310" width="337.5" height="54.5"/>
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="closeAlertViewAction:" destination="-1" eventType="touchUpInside" id="qxj-WI-Yjk"/>

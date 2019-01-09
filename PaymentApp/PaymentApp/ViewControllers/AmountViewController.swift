@@ -44,10 +44,20 @@ class AmountViewController: UIViewController {
     }
     
     @IBAction func validateAmount(_ sender: Any) {
-        if !(amountTextField.text?.isEmpty ?? true), amountTextField.text?.isNumeric ?? false {
-            performSegue(withIdentifier: "goToPaymentMethod", sender: nil)
+        if amountTextField.text?.isEmpty ?? true{
+            let emptyError: ErrorTypes = .emptyAmountError
+            print(emptyError.message)
+            let errorDialog = ErrorAlertView(emptyError)
+            //errorDialog.delegate = self
+            errorDialog.show(animated: true)
+        } else if !(amountTextField.text?.isNumeric ?? false) {
+            let invalidError: ErrorTypes = .invalidAmountError
+            print(invalidError.message)
+            let errorDialog = ErrorAlertView(invalidError)
+            //errorDialog.delegate = self
+            errorDialog.show(animated: true)
         } else {
-            print("Error: \(amountTextField.text ?? "error")")
+            performSegue(withIdentifier: "goToPaymentMethod", sender: nil)
         }
     }
 

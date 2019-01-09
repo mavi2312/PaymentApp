@@ -73,6 +73,12 @@ class CardIssuersViewController: UIViewController {
     @IBAction func validateSelectedCardIssuer(_ sender: Any) {
         if selectedCardIssuer != nil {
             performSegue(withIdentifier: "goToInstallments", sender: nil)
+        } else {
+            let invalidError: ErrorTypes = .unselectedIssuerError
+            print(invalidError.message)
+            let errorDialog = ErrorAlertView(invalidError)
+            //errorDialog.delegate = self
+            errorDialog.show(animated: true)
         }
     }
     
